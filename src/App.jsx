@@ -5,12 +5,13 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css'
+import { requestTokenURL } from './requests';
 
 export default function App() {
-  const requestTokenURL = 'https://opentdb.com/api_token.php?command=request';
   const [token, setToken] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [category, setCategory] = useState([])
 
   useEffect(() => {
     const retreiveToken = async () => {
@@ -28,6 +29,10 @@ export default function App() {
     retreiveToken();
   }, []);
 
+  const selectedCategory = (category) => {
+    setCategory(category);
+  };
+
   if (loading) return <div>Loading Token ...</div>;
   if (error) return <div>{error}</div>;
 
@@ -36,8 +41,8 @@ export default function App() {
       <Navbar />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Menu />} />
-            <Route path="/quiz/:categoryID/:difficulty/:type/" element={<Quiz token={token}/>} />
+            <Route path="/" element={<Menu setCategory={selectedCategory}/>} />
+            <Route path="/quiz/:categoryID/:difficulty/:type/" element={<Quiz token={token} category={category}/>} />
           </Routes>
       </BrowserRouter>
     </div>

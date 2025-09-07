@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 const baseUrl = 'https://opentdb.com/api.php'
+export const requestTokenURL = 'https://opentdb.com/api_token.php?command=request';
 export const baseCategoryUrl = 'https://opentdb.com/api_category.php'
 const baseCategoryCountUrl = 'https://opentdb.com/api_count.php'
 

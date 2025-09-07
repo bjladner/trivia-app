@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router'
 import axios from 'axios'
 import { baseCategoryUrl, difficulties, types } from '../requests';
 
-export default function Meny() {
+export default function Menu({ setCategory }) {
   const navigate = useNavigate()
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -14,7 +14,6 @@ export default function Meny() {
     difficulty: 'all',
     type: 'all',
   });
-
 
   // - https://opentdb.com/api_category.php # category list and ids
   // - response: { "id": 9, "name": "General Knowledge" }
@@ -58,10 +57,12 @@ export default function Meny() {
 
   const startQuiz = (event) => {
     event.preventDefault()
+    const chosenCategory = categories.find((cat) => Number(cat.id) === Number(formData.category));
+    setCategory(chosenCategory);
     navigate(`/quiz/${formData.category}/${formData.difficulty}/${formData.type}/`)
   }
 
-  if (loading) return <div>Loading Difficulties ...</div>;
+  if (loading) return <div>Loading Categories ...</div>;
   if (error) return <div>{error}</div>;
 
   return (
@@ -74,7 +75,7 @@ export default function Meny() {
             name="category"
             onChange={selectCategory}>
             {categories.map((data, index) =>
-            <option key={index} value={data.id}>{data.name}</option> 
+              <option key={index} value={data.id}>{data.name}</option> 
             )};
           </Form.Select>
         </Form.Group>
@@ -85,7 +86,7 @@ export default function Meny() {
             name="category"
             onChange={selectDifficulty}>
             {difficulties.map((data, index) =>
-            <option key={index} value={data.value}>{data.label}</option> 
+              <option key={index} value={data.value}>{data.label}</option> 
             )};
           </Form.Select>
         </Form.Group>
@@ -96,7 +97,7 @@ export default function Meny() {
             name="type"
             onChange={selectType}>
             {types.map((data, index) =>
-            <option key={index} value={data.value}>{data.label}</option> 
+              <option key={index} value={data.value}>{data.label}</option> 
             )};
          </Form.Select>
         </Form.Group>

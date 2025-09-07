@@ -6,7 +6,7 @@ import { createTriviaApiUrl, difficulties, types } from '../requests';
 import axios from 'axios'
 
 
-export default function Quiz(token) {
+export default function Quiz({ token, category }) {
   const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -16,7 +16,7 @@ export default function Quiz(token) {
   const numberOfQuestions = 10;
   const { categoryID, difficulty, type } = useParams();
   const url = createTriviaApiUrl(numberOfQuestions, categoryID, difficulty, type, token.token);
-
+  
   const retreiveQuestions = async (url) => {
     try {
       const response = await axios.get(url);
@@ -52,7 +52,7 @@ export default function Quiz(token) {
         <div className="d-flex flex-column justify-content-start align-items-start">
           <div className="d-flex flex-row justify-content-between align-items-center w-100 my-2">
             <div className="bg-info p-2 rounded-1">
-              Category: {categoryID}
+              Category: {category.name}
             </div>
             <div className="bg-info p-2 rounded-1">
               Difficulty: {difficulties.find(diff => diff.value === difficulty).label}
