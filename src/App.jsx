@@ -4,7 +4,6 @@ import Quiz from './pages/Quiz'
 import { BrowserRouter, Routes, Route } from "react-router";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import './App.css'
 import { requestTokenURL } from './requests';
 
 export default function App() {
