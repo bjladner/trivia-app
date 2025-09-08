@@ -20,7 +20,7 @@ export default function Question({ key, question}) {
   return (
     <div key={key}>
       <div className="fs-4 fw-bold lead">
-        <div dangerouslySetInnerHTML={{ __html: question.question.question }} />
+        <div dangerouslySetInnerHTML={{ __html: question.question }} />
       </div>
       <Button variant="primary" onClick={toggleShowAnswer}>
         Toggle Answer
@@ -29,7 +29,7 @@ export default function Question({ key, question}) {
         {shuffledAnswers.map((opt, index) => (
           <li key={index}
             className={`list-group-item list-group-item-action my-1 rounded-pill disabled 
-            ${opt === question.question.correct_answer && showAnswers ? 'bg-success border border-success text-white' : ''}`}
+            ${opt === question.correct_answer && showAnswers ? 'bg-success border border-success text-white' : ''}`}
           >
             <div dangerouslySetInnerHTML={{ __html: opt }} />
           </li>
