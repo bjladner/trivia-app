@@ -77,7 +77,6 @@ export default function Quiz({ token, category }) {
           Menu
         </Button>
       </div>
-
     </div>
   )
 }
