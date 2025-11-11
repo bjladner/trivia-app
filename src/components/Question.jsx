@@ -3,7 +3,7 @@ import { useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import { shuffleAnswers } from '../requests';
 
-export default function Question({ key, question}) {
+export default function Question({ question}) {
   const [showAnswers, setShowAnswers] = useState(false);
   const [shuffledAnswers, setShuffledAnswers] = useState([]);
 
@@ -18,7 +18,7 @@ export default function Question({ key, question}) {
   };
 
   return (
-    <div key={key}>
+    <div>
       <div className="fs-4 fw-bold lead">
         <div dangerouslySetInnerHTML={{ __html: question.question }} />
       </div>
