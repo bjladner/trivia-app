@@ -36,6 +36,7 @@ export default function Quiz({ token, category }) {
 
   const nextQuestions = () => {
     retreiveQuestions(url);
+    window.scrollTo(0, 0)
     setPage((prev) => prev + 1)
   }
 

@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Form, Button } from 'react-bootstrap'
+import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router'
 import axios from 'axios'
 import { baseCategoryUrl, difficulties, types } from '../requests';
 
 export default function Menu({ setCategory }) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
