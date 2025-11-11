@@ -19,10 +19,12 @@ export default function Quiz({ token, category }) {
   
   const retreiveQuestions = async (url) => {
     try {
+      console.log(url)
       const response = await axios.get(url);
       console.log(response.data)
       setQuestions(response.data);
     } catch (err) {
+      console.log('Failed to retreive Questions')
       setError('Failed to retreive Questions');
       console.error(err);
     } finally {
