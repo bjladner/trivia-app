@@ -1,10 +1,14 @@
 {
-  "name": "trivia-app",
+  "name": "@bjladner/trivia-app",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "publishConfig": {
+    "@bjladner:registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "dev": "vite",
+    "test": "exit 0",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
