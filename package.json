@@ -1,7 +1,7 @@
 {
   "name": "@bjladner/trivia-app",
-  "private": true,
-  "version": "1.0.0",
+  "private": false,
+  "version": "1.0.2",
   "type": "module",
   "publishConfig": {
     "@bjladner:registry": "https://npm.pkg.github.com"
