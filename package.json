@@ -1,11 +1,9 @@
 {
-  "name": "@bjladner/trivia-app",
+  "name": "trivia-app",
   "private": false,
-  "version": "1.0.2",
+  "version": "1.0.0",
   "type": "module",
-  "publishConfig": {
-    "@bjladner:registry": "https://npm.pkg.github.com"
-  },
+  "homepage": "https://trivia-app.labnerd.net",
   "scripts": {
     "dev": "vite",
     "test": "exit 0",
